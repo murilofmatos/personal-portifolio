@@ -37,7 +37,7 @@ function CustomCursor() {
         width: size,
         height: size,
       }}
-      className="fixed z-99 rounded-full bg-white/30 backdrop-blur pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]"
+      className="fixed z-99 rounded-full bg-white/30 backdrop-blur pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-[width,height] duration-150 ease-in-out shadow-[0_0_10px_2px_rgba(0,0,0,0.5)]"
     />
   );
 }

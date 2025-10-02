@@ -4,7 +4,7 @@ function Device({ children }: { children: React.ReactNode }) {
       <Buttons />
       <Camera />
       <div className="w-full h-full p-8 border border-gray-400 rounded-4xl bg-black z-20">
-        <div className="w-full h-full bg-[url('/wallpaper.png')] bg-cover bg-center rounded-2xl items-center flex flex-col">
+        <div className="w-full h-full bg-[url('/wallpaper.png')] bg-cover bg-center rounded-2xl items-center flex flex-col relative">
           {children}
         </div>
       </div>

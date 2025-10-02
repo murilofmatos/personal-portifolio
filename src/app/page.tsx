@@ -6,7 +6,7 @@ import StatusBar from "@/components/StatusBar";
 export default function Home() {
   return (
     <main
-      className="w-full h-screen bg-[#202020] flex justify-center items-ceter lg:p-20"
+      className="w-full h-screen bg-[#202020] flex justify-center items-ceter lg:p-20 cursor-none"
       style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
     >
       <CustomCursor />
