@@ -11,36 +11,51 @@ function AppIcon({
   alt: string;
   name?: string;
 }) {
-  const [appWidth, setAppWidth] = useState("70px");
-  const [appHeight, setAppHeight] = useState("70px");
-  const [appZIndex, setAppZIndex] = useState(-1);
-  const [appTop, setAppTop] = useState(0);
-  const [appLeft, setAppLeft] = useState(0);
+  const [appWidth, setAppWidth] = useState("0");
+  const [appHeight, setAppHeight] = useState("0");
+  const [appZIndex, setAppZIndex] = useState(10);
+  const [appTop, setAppTop] = useState("0");
+  const [appLeft, setAppLeft] = useState("0");
   const [appTransform, setAppTransform] = useState("translate(0, 0)");
   const [fatherPosition, setFatherPosition] = useState<
     "absolute" | "relative" | "fixed" | "sticky" | "static" | undefined
-  >("relative");
+  >("static");
+  const [fatherWidth, setFatherWidth] = useState("70px");
+  const [fatherHeight, setFatherHeight] = useState("70px");
 
   function handleClick() {
-    setAppZIndex(10);
-    setAppTransform("translate(50%, 50%)");
+    setAppZIndex(50);
+    setAppTransform("-50% -50%");
     setFatherPosition("absolute");
-    setAppTop(-153);
-    setAppLeft(-115);
+    setAppTop("50%");
+    setAppLeft("50%");
     setAppWidth("100%");
     setAppHeight("100%");
+    setFatherWidth("100%");
+    setFatherHeight("100%");
   }
 
   return (
     <div
-      className=" bg-blue-500 left-0 top-0 z-10"
+      className="left-0 top-0 z-10"
       style={{
         position: fatherPosition,
-        width: appWidth,
-        height: appHeight,
+        width: fatherWidth,
+        height: fatherHeight,
+        display: "flex",
+        zIndex: appZIndex,
       }}
     >
-      <button onClick={handleClick} className="w-fit">
+      <button
+        onClick={handleClick}
+        className="w-fit transition-all duration-300"
+        style={{
+          position: fatherPosition,
+          left: appLeft,
+          top: appTop,
+          translate: appTransform,
+        }}
+      >
         <Image
           src={icon}
           alt={alt}
@@ -51,15 +66,15 @@ function AppIcon({
         {name && <p className="text-white mt-1 text-sm text-center">{name}</p>}
       </button>
       <div
-        className="absolute bg-slate-700 transition-all duration-300 ease-in-out"
+        className="bg-slate-700 transition-all duration-300 ease-in-out overflow-hidden"
         style={{
+          position: fatherPosition,
           width: appWidth,
           height: appHeight,
           top: appTop,
           left: appLeft,
-          transform: appTransform,
+          translate: appTransform,
           borderRadius: "0.75rem",
-          zIndex: appZIndex,
         }}
       ></div>
     </div>
@@ -67,4 +82,3 @@ function AppIcon({
 }
 
 export default AppIcon;
-
